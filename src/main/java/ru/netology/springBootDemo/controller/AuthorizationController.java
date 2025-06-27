@@ -1,9 +1,11 @@
 package ru.netology.springBootDemo.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.netology.springBootDemo.model.Authorities;
+import ru.netology.springBootDemo.model.User;
+import ru.netology.springBootDemo.resolver.FromQuery;
 import ru.netology.springBootDemo.service.AuthorizationService;
 
 import java.util.List;
@@ -17,7 +19,7 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {
-        return service.getAuthorities(user, password);
+    public List<Authorities> getAuthorities(@Valid @FromQuery User user) {
+        return service.getAuthorities(user);
     }
 }
