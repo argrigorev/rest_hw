@@ -7,7 +7,6 @@ import ru.netology.springBootDemo.model.Authorities;
 import ru.netology.springBootDemo.model.User;
 import ru.netology.springBootDemo.resolver.FromQuery;
 import ru.netology.springBootDemo.service.AuthorizationService;
-
 import java.util.List;
 
 @RestController
